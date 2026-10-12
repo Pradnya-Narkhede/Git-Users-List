@@ -8,7 +8,6 @@
 import XCTest
 @testable import GitHubViewerPOC
 
-
 @MainActor
 final class UserDetailViewModelTests: XCTestCase {
     private var mockService: MockUserService!
@@ -18,7 +17,10 @@ final class UserDetailViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockService = MockUserService()
-        initialUser = GitHubUser(id: 1, login: "torvalds", avatarUrl: nil, htmlUrl: nil, name: nil, bio: nil, publicRepos: nil, followers: nil, following: nil)
+        initialUser = GitHubUser(
+            id: 1, login: "torvalds", avatarUrl: nil, htmlUrl: nil, name: nil, bio: nil,
+            publicRepos: nil, followers: nil, following: nil
+        )
         sut = UserDetailViewModel(user: initialUser, userService: mockService)
     }
 

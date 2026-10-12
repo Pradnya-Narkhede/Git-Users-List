@@ -212,7 +212,6 @@ struct MetricView: View {
             Image(systemName: icon)
                 .font(.system(size: 18, weight: .medium))
                 .foregroundStyle(.secondary)
-            
 
             Text(value)
                 .font(.title2.bold())

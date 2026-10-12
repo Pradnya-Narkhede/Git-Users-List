@@ -12,19 +12,19 @@ import Combine
 @MainActor
 final class AppCoordinator: ObservableObject {
     @Published var navigationPath = NavigationPath()
-    
+
     let userService: UserServiceProtocol
     let networkMonitor: NetworkMonitor
     let jailbreakDetector: JailbreakDetecting
 
     init(
-        userService: UserServiceProtocol = UserService(),
-        networkMonitor: NetworkMonitor = NetworkMonitor(),
-        jailbreakDetector: JailbreakDetecting = JailbreakDetector()
+        userService: UserServiceProtocol? = nil,
+        networkMonitor: NetworkMonitor? = nil,
+        jailbreakDetector: JailbreakDetecting? = nil
     ) {
-        self.userService = userService
-        self.networkMonitor = networkMonitor
-        self.jailbreakDetector = jailbreakDetector
+        self.userService = userService ?? UserService()
+        self.networkMonitor = networkMonitor ?? NetworkMonitor()
+        self.jailbreakDetector = jailbreakDetector ?? JailbreakDetector()
     }
 
     // Navigation Actions
@@ -42,7 +42,11 @@ final class AppCoordinator: ObservableObject {
     @ViewBuilder
     func buildStartView() -> some View {
         let viewModel = UserListViewModel(userService: userService, coordinator: self)
-        UserListView(viewModel: viewModel, networkMonitor: networkMonitor, isJailbroken: jailbreakDetector.isJailbroken())
+        UserListView(
+            viewModel: viewModel,
+            networkMonitor: networkMonitor,
+            isJailbroken: jailbreakDetector.isJailbroken()
+        )
     }
 
     @ViewBuilder

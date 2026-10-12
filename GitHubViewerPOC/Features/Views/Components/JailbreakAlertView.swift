@@ -7,7 +7,6 @@
 import SwiftUI
 import Foundation
 
-
 struct JailbreakAlertView: View {
     var body: some View {
         Text("⚠️ Security Warning: Device integrity compromised.")

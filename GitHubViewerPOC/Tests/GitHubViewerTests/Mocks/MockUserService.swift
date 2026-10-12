@@ -11,7 +11,10 @@ import Foundation
 final class MockUserService: UserServiceProtocol {
     var shouldFail: Bool = false
     var mockUsers: [GitHubUser] = [
-        GitHubUser(id: 1, login: "torvalds", avatarUrl: nil, htmlUrl: nil, name: "Linus", bio: "Linux", publicRepos: 50, followers: 150000, following: 0)
+        GitHubUser(
+            id: 1, login: "torvalds", avatarUrl: nil, htmlUrl: nil, name: "Linus", bio: "Linux",
+            publicRepos: 50, followers: 150000, following: 0
+        )
     ]
 
     func fetchUsers() async throws -> [GitHubUser] {

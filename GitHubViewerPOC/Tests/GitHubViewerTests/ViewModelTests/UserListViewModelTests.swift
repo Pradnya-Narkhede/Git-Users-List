@@ -9,7 +9,6 @@ import XCTest
 import SwiftUI
 @testable import GitHubViewerPOC
 
-
 @MainActor
 final class UserListViewModelTests: XCTestCase {
     private var mockService: MockUserService!

@@ -5,6 +5,9 @@
 //  Created by praful kharche on 11/10/26.
 //
 
+// This test file intentionally groups URL protocol and UI integration tests.
+// swiftlint:disable file_length
+
 import Foundation
 import SwiftUI
 import UIKit
@@ -69,7 +72,10 @@ final class APIClientTests: XCTestCase {
 
     func testRequestThrowsParsingErrorForMalformedJSON() async {
         StubURLProtocol.requestHandler = { request in
-            (HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!, Data("not-json".utf8))
+            (
+                HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!,
+                Data("not-json".utf8)
+            )
         }
 
         do {
@@ -372,11 +378,11 @@ final class ViewConstructionTests: XCTestCase {
 private final class StubURLProtocol: URLProtocol {
     static var requestHandler: ((URLRequest) throws -> (URLResponse, Data))?
 
-    override class func canInit(with request: URLRequest) -> Bool {
+    override static func canInit(with request: URLRequest) -> Bool {
         true
     }
 
-    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    override static func canonicalRequest(for request: URLRequest) -> URLRequest {
         request
     }
 

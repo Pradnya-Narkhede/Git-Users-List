@@ -65,7 +65,7 @@ struct UserRowView: View {
     var body: some View {
         HStack(spacing: 12) {
             AsyncImage(url: URL(string: user.avatarUrl ?? "")) { image in
-                image.resizable().aspectRatio(contentMode: .fill)
+                image.resizable().scaledToFill()
             } placeholder: {
                 Image(systemName: "person.crop.circle.fill").resizable()
             }
@@ -83,4 +83,3 @@ struct UserRowView: View {
         .contentShape(Rectangle())
     }
 }
-

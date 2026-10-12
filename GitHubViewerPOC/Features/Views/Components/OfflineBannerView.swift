@@ -18,4 +18,3 @@ struct OfflineBannerView: View {
             .background(Color.red)
     }
 }
-

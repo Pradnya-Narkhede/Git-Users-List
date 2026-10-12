@@ -197,3 +197,15 @@ This repository is intentionally focused on architecture and code quality rather
 - Avatar loading relies on `AsyncImage` and its system-managed cache behavior.
 - The jailbreak detector uses common heuristics and may require policy-specific hardening for a production security model.
 
+# GitHub Viewer POC
+
+## Screenshots
+
+### User List
+![User List](Screenshots/UserList.png)
+
+### User Details
+![User Details](Screenshots/UserDetailView.png)
+
+### User Web Git Profile
+![User Details](Screenshots/UserWebPage.png)
